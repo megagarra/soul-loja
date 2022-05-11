@@ -1,0 +1,33 @@
+<form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="nome">Digite seu nome</label>
+    <input formControlName="nome" type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+    <small class="text-danger" *ngIf="nome?.touched && nome?.invalid">Campo Invalido</small>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Digite o seu email</label>
+    <input formControlName="email" type="email" class="form-control" id="email"  placeholder="Digite seu email">
+    <small class="text-danger" *ngIf="email?.touched && email?.invalid">O email é obrigatorio</small>
+  </div>
+
+  <div class="form-group">
+    <label for="feedback">Deixe o seu feedback</label>
+  <textarea formControlName="comentario" class="form-control" id="feedback" rows="3"></textarea>
+  <small class="text-danger" *ngIf="comentario?.touched && comentario?.invalid">Seu FeedBack é obrigado</small>
+  </div>
+
+  <div class="form-group">
+    <label for="feedback">Deixe sua nota</label>
+    <select formControlName="nota" class="form-select" aria-label="Default select example">
+      <option selected value="0" >0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <small class="text-danger" *ngIf="nota?.touched && nota?.invalid">Deixe sua nota</small>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="feedbackForm.invalid">Enviar</button>
+</form>

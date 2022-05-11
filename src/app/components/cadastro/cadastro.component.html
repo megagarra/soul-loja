@@ -1,0 +1,25 @@
+<form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()" action="">
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome</label>
+    <input formControlName="nome" id="nome" type="text" class="form-control" />
+    <small class="text-danger" *ngIf="nome?.touched && nome?.invalid">Campo Invalido</small>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input formControlName="email" id="email" type="email" class="form-control" />
+    <small class="text-danger" *ngIf="nome?.touched && nome?.invalid">
+      <span *ngIf="nome?.hasError('required')">O email é obrigatorio</span>
+    </small>
+  </div>
+  <div class="mb-3">
+    <label for="endereco" class="form-label">Endereco</label>
+    <input formControlName="endereco" id="endereco" type="text" class="form-control" />
+    <small class="text-danger" *ngIf="nome?.touched && nome?.invalid">Campo Invalido</small>
+  </div>
+  <div class="mb-3">
+    <label for="senha" class="form-label">Senha</label>
+    <input formControlName="senha" id="senha" type="password" class="form-control" />
+    <small class="text-danger" *ngIf="nome?.touched && nome?.invalid">Campo Invalido</small>
+  </div>
+  <button class="btn btn-primary">Cadastrar</button>
+</form>

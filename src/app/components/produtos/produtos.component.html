@@ -1,0 +1,23 @@
+
+<hr>
+<div class="container-sm">
+  <div class="h-100 d-flex justify-content-center align-items-center">
+    <h1 >Nossos produtos</h1>
+    <hr>
+
+  </div>
+</div>
+<hr>
+
+  <div class="mx-1">
+  <div class="container">
+    <div class="row">
+        <div class="col" *ngFor="let produto of produtos">
+            <app-produto [dadoProduto]="produto" (onCarrinho)="addCarrinho($event)">
+                <p *ngIf="produtoNoCarrinho(produto)" class="text-muted">*Produto adicionado no Carrinho</p>
+            </app-produto>
+        </div>
+    </div>
+   </div>
+   </div>
+

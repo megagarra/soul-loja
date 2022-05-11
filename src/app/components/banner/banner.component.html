@@ -1,0 +1,58 @@
+<div>
+  <div class="header-blue">
+      <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
+          <div class="container-fluid"><a class="navbar-brand" href="#">SOUL-LOJA</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+              <div class="collapse navbar-collapse"
+                  id="navcol-1">
+                  <ul class="nav navbar-nav">
+                      <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="'/login'">Login</a></li>
+                      <li class="nav-item" role="presentation"><a class="nav-link" href="#">Serviços</a>
+                      </li>
+                  </ul>
+
+                </div>
+          </div>
+      </nav>
+      <div class="container hero">
+          <div class="row">
+              <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
+                <h1 *ngIf="!oculto; else mensagem">
+                  Capacitar e Apoiar
+                  <hr>
+                  <p *ngFor="let destaque of destaque">
+                    {{destaque}}
+                  </p>
+              </h1>
+                <ng-template #mensagem>
+                  <h1>{{slogan}}</h1>
+                  <p>{{descricaoSlogan}}<br></p>
+                </ng-template>
+                  <button
+                      class="btn btn-light btn-lg action-button" type="button" (click)="onToggle()" [class]="classesBtn">{{callToAction}}<i class="fa fa-long-arrow-right ml-2"></i></button>
+
+              </div>
+              <div class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder">
+                  <div class="iphone-mockup">
+      <img class="device" src="https://soulcodeacademy.org/martech-academy/assets/images/Picture1.png">
+                    <!--  <div class="screen">
+        </div>
+
+        -->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

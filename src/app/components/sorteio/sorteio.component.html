@@ -1,0 +1,11 @@
+
+
+
+    <textarea [(ngModel)]="valores" class="form-control"  placeholder="Nomes em cada linha" rows="3"
+    id="values"></textarea>
+
+    <button  class="btn btn-primary"
+    (click)="onSorteio" [disabled]="valores.length === 0">Enviar</button>
+
+
+

@@ -1,0 +1,29 @@
+<form class="m-1" [formGroup]="movForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="" class="form-label">Titulo</label>
+    <input formControlName="titulo" type="text" class="form-control" />
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Total</label>
+    <input
+      formControlName="total"
+      type="number"
+      class="form-control"
+      step=".01"
+      min="0"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label"></label>
+    <select name="" id="" class="form-select">
+      <option value="1">Despesa</option>
+      <option value="2">Receita</option>
+    </select>
+  </div>
+  <button [disabled]="movForm.invalid" class="btn btn-primary">ADD</button>
+</form>
+<hr />
+<div *ngFor="let mov of movs$ | async">
+  <h6>{{mov.titulo}}</h6>
+  <p>{{mov.tipo == 0 ? "-" : "+"}}{{mov.total | currency}}</p>
+</div>

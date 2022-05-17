@@ -2,4 +2,20 @@
 <app-banner></app-banner>
 <app-produtos></app-produtos>
 <app-teste-data-binding></app-teste-data-binding>
+
+<hr>
+
+<div *ngIf="weather$ | async as clima; else loading">
+  <h1 class="display-'">{{clima.main.temp_max}}</h1>
+  <h1 class="display-'">{{clima.main.temp_min}}</h1>
+</div>
+<ng-template #loading>
+  <div class="spinner-border"></div>
+
+</ng-template>
+
+<hr>
+
 <app-servicos></app-servicos>
+
+

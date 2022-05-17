@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { RatingComponent } from './../rating/rating.component';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AppComponent,  } from 'src/app/app.component';
+
 
 @Component({
   selector: 'app-feedback-usuario',
@@ -8,13 +11,22 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class FeedbackUsuarioComponent implements OnInit {
 
+  @Input('rating') rating: number = 3;
+  @Output() ratingUpdated = new EventEmitter();
+  totalStar: number = 5;
+  ratingArray: number[] = [];
+
+  onRatingChanged(rating: number) {
+    this.rating = rating;
+  }
+
   constructor(private feed: FormBuilder) {}
 
     feedbackForm = this.feed.group({
       nome:['', [Validators.required]],
       email:['', [Validators.required, Validators.email], Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')],
       comentario:['', [Validators.required ]],
-      nota:['',[Validators.required, Validators.pattern('[0-5]'), Validators.pattern('')]],
+      nota:['',[Validators.required]],
     });
 
     get nome(){
@@ -40,6 +52,8 @@ export class FeedbackUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
 
 }
 
